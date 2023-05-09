@@ -14,10 +14,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 // roots
-app.post('/createTrick', (req, res) => {
-    
+app.get('/', (req,res) => {
+    res.sendFile(path.resolve(__dirname, './client/index.html'))
 })
 
+app.get('/createTrick', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './client/index.html'))
+})
+
+app.post('/createTrick',
+ trickController.createTrick, 
+(req, res) => {
+    return res.status(200).json()
+})
 
 app.use((req, res) => res.status(404).send('Invalid page.'))
 
