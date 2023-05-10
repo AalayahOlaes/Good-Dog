@@ -26,6 +26,10 @@ app.get('/', (req,res) => {
     res.sendFile(path.resolve(__dirname, './client/index.html'))
 })
 
+app.get('/', (req,res) => {
+    res.sendFile(path.resolve(__dirname, './client/styles.css'))
+})
+
 app.get('/getTricks', trickController.getTricks, (req, res) => {
     return res.status(200).json(res.locals.tricks)
 })
