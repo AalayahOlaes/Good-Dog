@@ -7,6 +7,10 @@ class TrickForm extends Component {
         this.state = {
             trickName: '',
             description: '',
+            cue: '', 
+            difficultyLevel: '', 
+            reinforcement: '',
+            repetitions: ''
         }
     }
 
@@ -17,6 +21,30 @@ class TrickForm extends Component {
     }
 
     handleDescripChange = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    }
+
+    handleCueChange = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    }
+
+    handleLevelChange = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    }
+
+    handleReinforcementChange = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    }
+
+    handleRepetitionsChange = (event) => {
         this.setState({
             description: event.target.value
         })
@@ -37,6 +65,37 @@ class TrickForm extends Component {
                     <textarea value={this.state.description}
                     onChange={this.handleDescripChange}
                     ></textarea>
+                </div>
+                <div>
+                    <label> Cue:</label>
+                    <input type="text"
+                    value={this.state.cue}
+                    onChange={this.handleCueChange}
+                    />
+                </div>
+                <div>
+                    <label> Difficulty Level (1-10):</label>
+                    <input type="number"
+                    value={this.state.difficultyLevel}
+                    onChange={this.handleLevelChange}
+                    />
+                </div>
+                <div>
+                    <label> Reinforcement:</label>
+                    <input type="text"
+                    value={this.state.reinforcement}
+                    onChange={this.handleReinforcementChange}
+                    />
+                </div>
+                <div>
+                    <label> Repetitions:</label>
+                    <input type="number"
+                    value={this.state.repetitions}
+                    onChange={this.handleRepetitionsChange}
+                    />
+                </div>
+                <div>
+                    <button> I'm Finished! </button>
                 </div>
            </form>
         )
