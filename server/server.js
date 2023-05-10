@@ -5,11 +5,16 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { db, Trick } = require('./trickModel');
 
+const bodyParser = require('body-parser');
 
+const trickController = require('./trickController');
 const PORT = 3000;
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use(express.static(path.resolve(__dirname, '../client')));
 
@@ -25,7 +30,7 @@ app.get('/createTrick', (req, res) => {
 app.post('/createTrick',
  trickController.createTrick, 
 (req, res) => {
-    return res.status(200).json()
+    return res.status(200)
 })
 
 app.use((req, res) => res.status(404).send('Invalid page.'))

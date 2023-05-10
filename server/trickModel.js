@@ -28,8 +28,7 @@ const trickSchema = new mongoose.Schema({
     cue: String, 
     difficultyLevel: Number, 
     reinforcement: String,
-    Repetitions: Number,
-    Variations: Mixed
+    repetitions: Number
 });
 
 module.exports = {
