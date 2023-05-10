@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Swicth, Route } from 'react-router-dom'; 
-import { Login } from './components/Login';
+import { Switch, Route } from 'react-router-dom'; 
+import { Login } from './components/Login.jsx';
 import { render } from 'react-dom';
 
 

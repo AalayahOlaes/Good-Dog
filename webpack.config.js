@@ -2,35 +2,34 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: process.env.NODE_ENV,
-    entry: {
-        src: '/client/App.jsx'
-    },
+    mode: 'development',
+    entry: './client/index.js',
     output: {
         filename: 'bundle.js',
         publicPath: '/',
-        path: path.resolve(__dirname, build)
+        path: path.resolve(__dirname, 'build')
     }, 
     module: {
         rules: [
             {
-                test: /\.jsx?/,
+                test: /.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: [ '@bable/env', '@babel/react']
+                    presets: [ '@babel/preset-env', '@babel/preset-react']
                 }
             },
             {
-                test: /\.s?css/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader']
-            }
+                test: /.(css|scss)$/,
+                exclude: [/node_modules/, /client\/stylesheets\/modules/],
+                use: ['style-loader', 'css-loader'],
+            },
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Development',
-            template: 'index.html'
+            template: './client/index.html'
         }),
     ],
     devServer: {
@@ -41,5 +40,9 @@ module.exports = {
         proxy: {
             '/api': 'http://localhost:3000'
         }
-    }
+    },
+    resolve: {
+        // Enable importing JS / JSX files without specifying their extension
+        extensions: ['.js', '.jsx'],
+      },
 }
