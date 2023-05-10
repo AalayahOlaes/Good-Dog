@@ -1,3 +1,4 @@
+const { models } = require('mongoose');
 const { db, Trick } = require('./trickModel');
 
 const trickController = {};
@@ -26,5 +27,20 @@ trickController.createTrick = (req, res) => {
     });
 };
 
+trickController.getTricks = async (req, res, next) => {
+   try {
+    const trickDocs = await models.Trick.find({}).exec();
+    res.locals.tricks = trickDocs;
+    return next();
+   } catch (err) {
+    return next({
+        log: `trickController.getTricks: Error: ${err}`,
+        status: err.status || 500,
+        message: {
+            err: 'Error occured in trickController.getTricks.'
+        },
+    });
+   }
+}
 
 module.exports = trickController;
