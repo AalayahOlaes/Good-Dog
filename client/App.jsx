@@ -27,7 +27,7 @@ function App() {
     }, []);
 
     return (
-    <div classname="App"> 
+    <div className="App"> 
         {/* <Login />  */}
         <TrickForm setData={handleUpdate}/>
         <div className="cardParent">

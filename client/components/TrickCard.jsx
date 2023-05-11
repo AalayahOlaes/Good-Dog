@@ -8,7 +8,7 @@ const TrickCard = ({ trick }) => {
     })
     .then(console.log('after delete fetch'))
       .then((response) => response.json())
-      .then(() => window.location.reload(false))
+      // .then(() => window.location.reload(false))
       .catch((err) => console.log(err));
   };
 
@@ -23,7 +23,7 @@ const TrickCard = ({ trick }) => {
       <button
         className="deleteButton"
         id={trick._id}
-        onClick={() => deleteCard(trick._id)}
+        onClick={() => {deleteCard(trick._id); return window.location.reload(false)}}
       >
         Remove Trick
       </button>
