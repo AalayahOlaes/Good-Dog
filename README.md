@@ -1,6 +1,16 @@
 # Good-Dog
 Solo Project #1 
 
+COLORS: 
+muted green apple green - 8B9A46
+dark purple - 371B58
+cool tone purple - 4C3575
+cool tone light purple - 5B4B8A
+light purple - 7858A6
+brighter muted orange - F58840
+night gray - 525252
+light gray - BBBBBB
+
 addForm
 
 import React, { useState } from 'react';

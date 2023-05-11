@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Creepster&family=Oswald&display=swap');
+
+/* font-family: 'Calistoga', cursive;
+font-family: 'Creepster', cursive;
+font-family: 'Oswald', sans-serif; */
+
 body {
-    background-color: #E9D985;
+    background-color: #5B4B8A;
 }
 
 .cardParent {
@@ -8,5 +14,11 @@ body {
     gap: 15px;
 }
 
+#potatoHeader {
+    text-align: center;
+    font-family: 'Creepster', cursive;
+    font-size: 60px;
+    margin-top: 15px;
+}
 
 
