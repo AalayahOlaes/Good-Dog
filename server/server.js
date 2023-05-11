@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, 'client')));
 
 
 // roots
@@ -34,7 +34,7 @@ app.get('/getTricks', trickController.getTricks, (req, res) => {
     return res.status(200).json(res.locals.tricks)
 })
 
-app.post('/createTrick',
+app.post('/api/createTrick',
  trickController.createTrick, 
 (req, res) => {
     return res.status(200)
@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    (`Server listening on port: ${PORT}`);
+    (console.log(`Server listening on port: ${PORT}`));
 });
 
 module.exports = app;

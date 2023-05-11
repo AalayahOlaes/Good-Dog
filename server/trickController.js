@@ -5,7 +5,8 @@ const trickController = {};
 
 trickController.createTrick = (req, res) => {
     const { trickName, description, cue, difficultyLevel, reinforcement, repetitions } = req.body;
-
+    console.log('inside create trick')
+    console.log('req.body')
     if (!trickName || !description) {
         return res.status(400).json({ error: 'Please enter the name and description of the trick.' });
     }
