@@ -5,28 +5,33 @@ const trickController = {};
 
 trickController.createTrick = (req, res) => {
     const { trickName, description, cue, difficultyLevel, reinforcement, repetitions } = req.body;
-    console.log('inside create trick')
-    console.log('req.body')
     if (!trickName || !description) {
-        return res.status(400).json({ error: 'Please enter the name and description of the trick.' });
+      return res.status(400).json({ error: 'Please enter the name and description of the trick.' });
     }
-
+  
     Trick.create({
-        trickName,
-        description,
-        cue,
-        difficultyLevel,
-        reinforcement,
-        repetitions,
+      trickName,
+      description,
+      cue,
+      difficultyLevel,
+      reinforcement,
+      repetitions,
     })
     .then((trick) => {
-        return res.status(201).json({ trick });
+      Trick.find({}) // Retrieve all tricks from the database
+        .then((tricks) => {
+          return res.status(201).json({ tricks }); // Return an array of tricks
+        })
+        .catch((err) => {
+          console.error(err);
+          return res.status(500).json({ error: 'An error occurred while retrieving the tricks.' });
+        });
     })
     .catch((err) => {
-        console.error(err);
-        return res.status(500).json({ error: 'An error occurred while creating the trick.' });
+      console.error(err);
+      return res.status(500).json({ error: 'An error occurred while creating the trick.' });
     });
-};
+  };
 
 trickController.getTricks = async (req, res, next) => {
    try {

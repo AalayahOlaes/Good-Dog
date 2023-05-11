@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
+import './CreateTrick.scss';
 
-const TrickForm = (props) => {
+const TrickForm = ({ setData }) => {
     const [formElements, setFormElements] = useState({
       trickName: '',
       description: '',
@@ -10,6 +11,8 @@ const TrickForm = (props) => {
       repetitions: ''
     });
   
+    const [cards, setCards] = useState([]);
+
     const handleInputChange = (event) => {
       const { name, value } = event.target;
       setFormElements((prevFormElements) => ({
@@ -22,7 +25,6 @@ const TrickForm = (props) => {
       event.preventDefault();
   
       try {
-        console.log('before fetch')
         const response = await fetch('/api/createTrick', {
           method: 'POST',
           headers: {
@@ -30,19 +32,25 @@ const TrickForm = (props) => {
           },
           body: JSON.stringify(formElements)
         });
-        console.log('after fetch')
+
+        const data = await response.json();
+        console.log("this is the data", data)
+        setData(data);
         if (!response.ok) {
           throw new Error('failed after fetch');
         }
-  
-        console.log('Trick created successfully');
       } catch (error) {
         console.error('Skipped fetch:', error.message);
       }
     };
+
+    useEffect(() => {
+        console.log('Cards updated:', cards);
+      }, [cards]);
+    
   
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="myForm">
         <div>
           <label>Trick Name:</label>
           <input
@@ -97,7 +105,7 @@ const TrickForm = (props) => {
           />
         </div>
         <div>
-          <button>I'm Finished!</button>
+          <button onClick={handleSubmit}>I'm Finished!</button>
         </div>
       </form>
     );

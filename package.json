@@ -30,6 +30,8 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "concurrently": "^8.0.1",
+    "cors": "^2.8.5",
+    "css-loader": "^6.7.3",
     "eslint": "^8.40.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
@@ -39,12 +41,14 @@
     "mongodb": "^5.4.0",
     "mongoose": "^7.1.0",
     "node": "^20.1.0",
+    "node-sass": "^8.0.0",
     "nodemon": "^2.0.22",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
-    "sass-loader": "^13.2.2"
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2"
   }
 }

@@ -9,9 +9,9 @@ const bodyParser = require('body-parser');
 
 const trickController = require('./trickController');
 const PORT = 3000;
+const cors = require('cors');
 
-
-
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,7 +30,7 @@ app.get('/', (req,res) => {
     res.sendFile(path.resolve(__dirname, './client/styles.css'))
 })
 
-app.get('/getTricks', trickController.getTricks, (req, res) => {
+app.get('/api/', trickController.getTricks, (req, res) => {
     return res.status(200).json(res.locals.tricks)
 })
 
