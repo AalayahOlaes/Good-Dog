@@ -53,8 +53,9 @@ const TrickForm = ({ setData }) => {
       <form onSubmit={handleSubmit} className="myForm">
         <div>
             <h2 className='addTrick'>Add New Trick!</h2>
-          <label>Trick Name:</label>
+          <label className='trickName'>Trick Name:</label>
           <input
+            className='trickInput'
             type="text"
             name="trickName"
             value={formElements.trickName}
@@ -62,16 +63,18 @@ const TrickForm = ({ setData }) => {
           />
         </div>
         <div>
-          <label>Description:</label>
-          <textarea
+          <label className='descrip'>Description:</label>
+          <input
+            className='descripInput'
             name="description"
             value={formElements.description}
             onChange={handleInputChange}
-          ></textarea>
+          ></input>
         </div>
         <div>
-          <label>Cue:</label>
+          <label className='cueForm'>Cue:</label>
           <input
+            className='cueInput'
             type="text"
             name="cue"
             value={formElements.cue}
@@ -79,8 +82,9 @@ const TrickForm = ({ setData }) => {
           />
         </div>
         <div>
-          <label>Difficulty Level (1-10):</label>
+          <label className='diffForm'>Difficulty Level (1-10):</label>
           <input
+            className='diffInput'
             type="number"
             name="difficultyLevel"
             value={formElements.difficultyLevel}
@@ -88,8 +92,9 @@ const TrickForm = ({ setData }) => {
           />
         </div>
         <div>
-          <label>Reinforcement:</label>
+          <label className='reForm'>Reinforcement:</label>
           <input
+            className='reInput'
             type="text"
             name="reinforcement"
             value={formElements.reinforcement}
@@ -97,8 +102,9 @@ const TrickForm = ({ setData }) => {
           />
         </div>
         <div>
-          <label>Repetitions:</label>
+          <label className='repeForm'>Repetitions:</label>
           <input
+            className='repeInput'
             type="number"
             name="repetitions"
             value={formElements.repetitions}
@@ -106,7 +112,7 @@ const TrickForm = ({ setData }) => {
           />
         </div>
         <div>
-          <button onClick={handleSubmit}>I'm Finished!</button>
+          <button className='submitButton' onClick={handleSubmit}>I'm Finished!</button>
         </div>
       </form>
     );
