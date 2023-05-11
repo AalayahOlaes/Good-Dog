@@ -4,6 +4,7 @@ font-family: 'Creepster', cursive;
 font-family: 'Oswald', sans-serif; */
 
 .card {
+    font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -30,6 +31,20 @@ font-family: 'Oswald', sans-serif; */
 }
 
 .cue {
+    text-align: center;
+    border: 1px;
+    background-color: #BBBBBB;
+    border-color: black;
+    border-radius: 10px;
+    margin: 6px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.label {
+    text-align: left;
+    font-weight: bold;
     border: 1px;
     background-color: #BBBBBB;
     border-color: black;
@@ -41,6 +56,7 @@ font-family: 'Oswald', sans-serif; */
 }
 
 .difficultyLevel {
+    text-align: center;
     border: 1px;
     background-color: #BBBBBB;
     border-color: black;
@@ -52,6 +68,7 @@ font-family: 'Oswald', sans-serif; */
 }
 
 .reinforcement {
+    text-align: center;
     border: 1px;
     background-color: #BBBBBB;
     border-color: black;
@@ -63,6 +80,7 @@ font-family: 'Oswald', sans-serif; */
 }
 
 .repetitions {
+    text-align: center;
     border: 1px;
     background-color: #BBBBBB;
     border-color: black;

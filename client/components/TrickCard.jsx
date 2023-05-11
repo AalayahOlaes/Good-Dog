@@ -20,10 +20,18 @@ const TrickCard = ({ trick, data }) => {
         </div>
       <h2 className="trickName">{trick.trickName}</h2>
       <p className="description">{trick.description}</p>
-      <p className="cue">Cue: {trick.cue}</p>
-      <p className="difficultyLevel">Difficulty Level: {trick.difficultyLevel}</p>
-      <p className="reinforcement">Reinforcement: {trick.reinforcement}</p>
-      <p className="repetitions">Repetitions: {trick.repetitions}</p>
+      <p className='cue'>
+        <span className="label">Cue:</span> {trick.cue}
+      </p>
+      <p className="difficultyLevel">
+        <span className="label">Difficulty Level: </span>
+        {trick.difficultyLevel}</p>
+      <p className="reinforcement">
+        <span className="label">Reinforcement: </span>
+        {trick.reinforcement}</p>
+      <p className="repetitions">
+        <span className="label">Repetitions: </span>
+      {trick.repetitions}</p>
       <button
         className="deleteButton"
         id={trick._id}
