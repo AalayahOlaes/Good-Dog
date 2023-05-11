@@ -26,9 +26,9 @@ app.get('/', (req,res) => {
     res.sendFile(path.resolve(__dirname, './client/index.html'))
 })
 
-app.get('/', (req,res) => {
-    res.sendFile(path.resolve(__dirname, './client/styles.css'))
-})
+// app.get('/', (req,res) => {
+//     res.sendFile(path.resolve(__dirname, './client/styles.css'))
+// })
 
 app.get('/api/', trickController.getTricks, (req, res) => {
     return res.status(200).json(res.locals.tricks)
@@ -39,6 +39,10 @@ app.post('/api/createTrick',
 (req, res) => {
     return res.status(200)
 })
+
+
+app.delete('/api/:id', trickController.deleteCard,
+(req, res) => res.sendStatus(200));
 
 app.use((req, res) => res.status(404).send('Invalid page.'))
 

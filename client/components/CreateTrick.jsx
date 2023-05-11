@@ -34,8 +34,19 @@ const TrickForm = ({ setData }) => {
         });
 
         const data = await response.json();
-        console.log("this is the data", data)
-        setData(data);
+        const { _id } = data;
+        console.log( _id )
+        setData((prevData) => [...prevData, {...formElements, _id}]);
+
+        setFormElements({
+          trickName: '',
+          description: '',
+          cue: '',
+          difficultyLevel: '',
+          reinforcement: '',
+          repetitions: ''
+        });
+
         if (!response.ok) {
           throw new Error('failed after fetch');
         }

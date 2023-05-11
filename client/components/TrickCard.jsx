@@ -1,9 +1,17 @@
 import React from 'react';
-// const { db, Trick } = require('.server/trickModel');
 import './TrickCard.scss';
 
-
 const TrickCard = ({ trick }) => {
+  const deleteCard = (_id) => {
+    fetch(`/api/${_id}`, {
+      method: 'DELETE',
+    })
+    .then(console.log('after delete fetch'))
+      .then((response) => response.json())
+      .then(() => window.location.reload(false))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="card">
       <h2 className="trickName">{trick.trickName}</h2>
@@ -12,8 +20,16 @@ const TrickCard = ({ trick }) => {
       <p className="difficultyLevel">Difficulty Level: {trick.difficultyLevel}</p>
       <p className="reinforcement">Reinforcement: {trick.reinforcement}</p>
       <p className="repetitions">Repetitions: {trick.repetitions}</p>
+      <button
+        className="deleteButton"
+        id={trick._id}
+        onClick={() => deleteCard(trick._id)}
+      >
+        Remove Trick
+      </button>
     </div>
   );
 };
 
 export default TrickCard;
+

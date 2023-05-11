@@ -49,4 +49,18 @@ trickController.getTricks = async (req, res, next) => {
    }
 }
 
+trickController.deleteCard = (req, res, next) => {
+  console.log('im in the delete controller')
+  const { id } = req.params;
+  Trick.findByIdAndDelete(id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return next();
+    } else {
+      console.log('Deleted: ', docs);
+      return next();
+    }
+  })
+}
+
 module.exports = trickController;
