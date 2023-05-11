@@ -4,7 +4,9 @@ import { Switch, Route } from 'react-router-dom';
 import { render } from 'react-dom';
 import { TrickForm } from './components/CreateTrick';
 import TrickCard from './components/TrickCard';
+import WeeklyBox from './components/Calendar';
 import './styles.css';
+
 
 
 
@@ -13,13 +15,15 @@ function App() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const handleUpdate = (newData) => {
-        setData([newData, ...data]);
+        setData((prevData) => [newData, ...prevData]);
+        // setData([newData, ...data]);
     };
 
     useEffect(() => {
         fetch(`http://localhost:3000/api/`)
         .then((res) => res.json())
         .then((trickData) => {
+            console.log(trickData)
             setData(trickData)
             setIsLoaded(true)
         })
@@ -29,10 +33,13 @@ function App() {
     return (
     <div className="App"> 
         {/* <Login />  */}
-        <TrickForm setData={handleUpdate}/>
+        <div className="formAndWeek">
+            <TrickForm setData={handleUpdate}/>
+            <WeeklyBox />
+        </div>
         <div className="cardParent">
         {data.map((trick) => (
-      <TrickCard key={trick._id} trick={trick} />
+      <TrickCard key={trick._id} trick={trick}/>
     ))}
     </div>
     </div>

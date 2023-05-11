@@ -14,7 +14,7 @@ const TrickForm = ({ setData }) => {
       repetitions: ''
     });
   
-    const [cards, setCards] = useState([]);
+    // const [cards, setCards] = useState([]);
 
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -35,10 +35,14 @@ const TrickForm = ({ setData }) => {
           },
           body: JSON.stringify(formElements)
         });
+        
+        if (!response.ok) {
+          throw new Error('failed to submit form');
+        }
 
         const data = await response.json();
         const { _id } = data;
-        console.log( _id )
+        console.log('submit', data)
         setData((prevData) => [...prevData, {...formElements, _id}]);
 
         setFormElements({
@@ -50,17 +54,11 @@ const TrickForm = ({ setData }) => {
           repetitions: ''
         });
 
-        if (!response.ok) {
-          throw new Error('failed after fetch');
-        }
+
       } catch (error) {
         console.error('Skipped fetch:', error.message);
       }
     };
-
-    useEffect(() => {
-        console.log('Cards updated:', cards);
-      }, [cards]);
     
   
     return (
@@ -126,7 +124,7 @@ const TrickForm = ({ setData }) => {
           />
         </div>
         <div>
-          <button className='submitButton' onClick={handleSubmit}>I'm Finished!</button>
+          <button className='submitButton' >I'm Finished!</button>
         </div>
       </form>
     );

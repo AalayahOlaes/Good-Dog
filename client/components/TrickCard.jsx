@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './TrickCard.scss';
 import { FaTrash, FaDog } from 'react-icons/fa';
 
-const TrickCard = ({ trick }) => {
+const TrickCard = ({ trick, data }) => {
   const deleteCard = (_id) => {
     fetch(`/api/${_id}`, {
       method: 'DELETE',
@@ -27,7 +27,7 @@ const TrickCard = ({ trick }) => {
       <button
         className="deleteButton"
         id={trick._id}
-        onClick={() => {deleteCard(trick._id); return window.location.reload(false)}}
+        onClick={() => {deleteCard(trick._id)}}
       >
         <FaTrash />
       </button>

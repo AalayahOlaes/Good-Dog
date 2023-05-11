@@ -21,4 +21,8 @@ body {
     margin-top: 15px;
 }
 
-
+.formAndWeek {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
