@@ -1,14 +1,19 @@
 .myForm {
     display: flex;
     flex-direction: column;
-    background: rgba( 106, 93, 123, 0.75 );
+    background: rgba( 139, 154, 70, 0.8 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 8px );
-    -webkit-backdrop-filter: blur( 8px );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 3px solid rgba( 255, 255, 255, 0.18 );  
     width: 40%;
-    height: 170px;
-    padding: 20px;
+    height: 190px;
+    padding: 10px;
     margin: 15px;
+}
+
+.addTrick {
+    margin: 0;
+    text-align: center;
 }

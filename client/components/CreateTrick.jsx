@@ -52,6 +52,7 @@ const TrickForm = ({ setData }) => {
     return (
       <form onSubmit={handleSubmit} className="myForm">
         <div>
+            <h2 className='addTrick'>Add New Trick!</h2>
           <label>Trick Name:</label>
           <input
             type="text"
