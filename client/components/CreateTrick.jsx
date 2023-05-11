@@ -1,5 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import './CreateTrick.scss';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSpiderWeb } from 'react-icons/fa';
+
 
 const TrickForm = ({ setData }) => {
     const [formElements, setFormElements] = useState({
@@ -63,7 +66,7 @@ const TrickForm = ({ setData }) => {
     return (
       <form onSubmit={handleSubmit} className="myForm">
         <div>
-            <h2 className='addTrick'>Add New Trick!</h2>
+            <h2 className='addTrick'> Add New Trick!</h2>
           <label className='trickName'>Trick Name:</label>
           <input
             className='trickInput'
