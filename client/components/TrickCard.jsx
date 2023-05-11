@@ -1,5 +1,6 @@
 import React from 'react';
 import './TrickCard.scss';
+import { FaTrash, FaDog } from 'react-icons/fa';
 
 const TrickCard = ({ trick }) => {
   const deleteCard = (_id) => {
@@ -14,6 +15,9 @@ const TrickCard = ({ trick }) => {
 
   return (
     <div className="card">
+        <div className="cardIconContainer">
+          <FaDog className="cardIcon" /> {/* Icon at top-left corner */}
+        </div>
       <h2 className="trickName">{trick.trickName}</h2>
       <p className="description">{trick.description}</p>
       <p className="cue">Cue: {trick.cue}</p>
@@ -25,7 +29,7 @@ const TrickCard = ({ trick }) => {
         id={trick._id}
         onClick={() => {deleteCard(trick._id); return window.location.reload(false)}}
       >
-        Remove Trick
+        <FaTrash />
       </button>
     </div>
   );

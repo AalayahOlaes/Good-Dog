@@ -6,6 +6,8 @@ font-family: 'Oswald', sans-serif; */
 .card {
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding: 10px;
     background: rgba( 247, 136, 18, 0.7 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 11.5px );
@@ -19,6 +21,7 @@ font-family: 'Oswald', sans-serif; */
     text-align: center;
     margin: 2px;
     font-family: 'Calistoga', cursive;
+    margin-top: 0;
 }
 
 .description {
@@ -69,4 +72,28 @@ font-family: 'Oswald', sans-serif; */
     margin-right: 20px;
     padding: 5px;
     margin-bottom: 8px;
+}
+
+.cardIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.cardIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Additional styles if needed */
+  }
+
+.deleteButton {
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    padding-left: 8px;
+    font-size: 20px;
+    max-width: 50px;
+    border: none;
 }
