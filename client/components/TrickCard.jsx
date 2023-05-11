@@ -35,7 +35,7 @@ const TrickCard = ({ trick, data }) => {
       <button
         className="deleteButton"
         id={trick._id}
-        onClick={() => {deleteCard(trick._id)}}
+        onClick={() => {deleteCard(trick._id); return window.location.reload(false)}}
       >
         <FaTrash />
       </button>
